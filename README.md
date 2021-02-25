@@ -77,7 +77,8 @@ Acrescentar configuração no arquivo ormconfig.json indicando o diretório que 
            - `yarn add ts-jest -D`
            - Após instalado, configurar o preset no arquivo *jest.config.ts* com o valor *preset: "ts-jest"*
     - **Executar testes**
-        - `yarn test`
+        - `yarn test -i`
+            - Em alguns momentos a execução dos testes fallhou, pois provavelmente ocorreram suas execuções simultâneas do método runMIgrations que é execuatdo na classe de testes. Com o parametro -i ele força a execução individual dos arquivos.
     - Instando nova ferramenta de testes, que possibilita testar as rotas
         - `yarn add supertest @types/supertest -D`
     - Entendendo as variáveis de ambiente
