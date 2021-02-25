@@ -1,5 +1,7 @@
-# Aula 01 - NLW4 com NODEJS
-## Iniciando projeto
+# NLW4 com NODEJS
+
+## Aula 01
+#### Iniciando projeto
 - Iniciar projeto via yarn
   - `yarn init -y`
 - Instalar express como dependência
@@ -10,18 +12,18 @@
 - Instalar typescript como dependência de desenvolvimento
     - `yarn add typescript -D`
 
-## Iniciar typescript no projeto
+### Iniciar typescript no projeto
 - Criar arquivo de configuração com nome tsconfig.json
   - `yarn tsc --init`
 - Em tempo de execução ele converte o código TS para Javascript, para que possa ser interpretado
   - `yarn add ts-node-dev -D`
 
-## Executando arquivo TS 
+### Executando arquivo TS 
 - Adicionar no package.json como um comando ex 'dev', para que o comando abaixo possa ser executado apenas com `yarn dev`
   - `ts-node-dev src/server.ts`
 
-# Aula 02 - Banco de Dados
-## Instalação do TypeORM
+ Aula 02 - Banco de Dados
+### Instalação do TypeORM
   - `yarn add typeorm reflect-metadata`
 
 - Instalar um driver de conexão com o banco de dados
@@ -31,7 +33,7 @@
 - Adicionar comando typeorm em package.json
   - `"typeorm": "ts-node-dev node_modules/typeorm/cli.js"`
 
-## Criando migrations
+### Criando migrations
 - Definindo caminho dos arquivos de migration
     - Acrescentar configuração no arquivo ormconfig.json indicando o diretório que as migrations serão criadas
 - Criando migrations
@@ -44,8 +46,8 @@
   - `yarn add uuid`
   - `yarn add @types/uuid -D`
 
-# Aula 03 - Testando aplicação
-## Configurando nova Entidade *Survey* e criando testes
+ Aula 03 - Testando aplicação
+### Configurando nova Entidade *Survey* e criando testes
 - Criado um repository para entidade de User
 - Alterado no controller para usar o repository que foi criado
 - Dica: `alt+shif+o` no vscode para remover importações não utilizadas
