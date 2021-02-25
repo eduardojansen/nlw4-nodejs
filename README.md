@@ -49,6 +49,44 @@ Acrescentar configuração no arquivo ormconfig.json indicando o diretório que 
 `yarn add uuid`
 `yarn add @types/uuid -D`
 
+# Aula 03 - Testando aplicação
+
+## Configurando nova Entidade *Survey* e criando testes
+- Criado um repository para entidade de User
+- Alterado no controller para usar o repository que foi criado
+- Dica: `alt+shif+o` no vscode para remover importações não utilizadas
+- Nova migration de Surveys
+    - `yarn typeorm migration:create -n CreateSurveys`
+    - `yarn typeorm migration:run`
+- Criado model, controller e repository, baseado no que foi feito para User, bem como a rota para acesso.
+- Criar uma rota de listagem de Surveys
+- Introdução a Testes automatizados
+    - **Tipos de testes**
+      1. *Testes unitários*
+          - Não testa integração com API ou banco de dados
+      2. *Teste de integração*
+          - Testa toda a aplicação, inclusive salvando no banco de dados
+      3. P*onta a ponta (E2E)*
+          - Testa completo desde a interface até o resultado final da ação do usuário
+   - **Configurando Jest**
+       - Instalação do Jest para execução dos testes automatizados
+           - `yarn add jest @types/jest -D`
+       - Criação do arquivo de configuração do Jest
+           - `yarn jest --init`
+       - Adicionar pacote que indica que usaremos TS para os testes
+           - `yarn add ts-jest -D`
+           - Após instalado, configurar o preset no arquivo *jest.config.ts* com o valor *preset: "ts-jest"*
+    - **Executar testes**
+        - `yarn test`
+    - Instando nova ferramenta de testes, que possibilita testar as rotas
+        - `yarn add supertest @types/supertest -D`
+    - Entendendo as variáveis de ambiente
+        - Configurar variável de ambiente de testes no package.json
+            - `"test": "NOD_ENV=test jest"`
+    - Configurar script para apagar banco de dados após a execução dos testes
+        - `"posttest": "rm ./src/database/database.test.sqlite"`
+
+
 
 
 
