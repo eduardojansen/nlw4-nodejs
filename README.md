@@ -22,7 +22,7 @@
 - Adicionar no package.json como um comando ex 'dev', para que o comando abaixo possa ser executado apenas com `yarn dev`
   - `ts-node-dev src/server.ts`
 
- Aula 02 - Banco de Dados
+ ## Aula 02 - Banco de Dados
 ### Instalação do TypeORM
   - `yarn add typeorm reflect-metadata`
 
@@ -46,7 +46,7 @@
   - `yarn add uuid`
   - `yarn add @types/uuid -D`
 
- Aula 03 - Testando aplicação
+ ## Aula 03 - Testando aplicação
 ### Configurando nova Entidade *Survey* e criando testes
 - Criado um repository para entidade de User
 - Alterado no controller para usar o repository que foi criado
@@ -83,7 +83,35 @@
     - Configurar script para apagar banco de dados após a execução dos testes
         - `"posttest": "rm ./src/database/database.test.sqlite"`
 
+ ## Aula 04 - Enviando Email
+### Criando SurveyUser
 
+- Criar nova entidade `SurveyUser` (Model, Entity, Repository)
+- Criar controller `SendMailController` e implementar método `execute` para criação da pesquisa.
+- Adicionar nova rota `/send`
+- Definir relacionamentos entre as tabelas dentro do Model utilizando as anotations do TypeORM
+
+### Envio de email
+- Uso da biblioteca `nodemailer`
+    - `yarn add nodemailer`
+    - `yarn add @types/nodemailer -D`
+- Uso da biblioteca `Ethereal` (https://ethereal.email) para fazer a simulação dos envios sem necessidade de servidor SMTP configurado em ambiente de densenvolvimento
+- Configurando **Handlebar**
+    - Linguagem de template, para criação de emails
+    - Instalando
+        - `yarn add handlebars`
+    - Criar pasta para salvar os templates e criar um arquivo com nome `npnMail.hbs`
+- Configurar variável de ambiente `.env` **na raiz do projeto**
+
+
+## Dicas
+### Erro ao iniciar projeto
+- Erro `[ERROR] 11:11:22 Error: listen EADDRINUSE: address already in use :::3333`
+    - Matar todos os processos do NODE referente a execução do projeto
+        - `ps aux | grep node | grep NOMEDAPASTADOPROJETO | awk {'print $2'} | xargs kill -9` 
+- Caso as **variáveis ambiente** não estejam sendo carregadas, segue os seguintes passos:
+    - É preciso instalar um pacote chamado dotenv, com o seguinte comando: `yarn add dotenv`
+    - No arquivo server.ts adicionar a seguinte importação no topo do arquivo: `import 'dotenv/config';`
 
 
 
