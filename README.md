@@ -87,8 +87,8 @@
 ### Criando SurveyUser
 
 - Criar nova entidade `SurveyUser` (Model, Entity, Repository)
-- Criar controller `SendMailController` e implementar método `execute` para criação da pesquisa.
-- Adicionar nova rota `/send`
+- Criar controller `SendMailController` e implementar método `execute` para criação da pesquisa e disparo do e-mail.
+- Adicionar nova rota `/send` que acionará o novo Controller que foi criado
 - Definir relacionamentos entre as tabelas dentro do Model utilizando as anotations do TypeORM
 
 ### Envio de email
@@ -101,16 +101,15 @@
     - Instalando
         - `yarn add handlebars`
     - Criar pasta para salvar os templates e criar um arquivo com nome `npnMail.hbs`
-- Configurar variável de ambiente `.env` **na raiz do projeto**
-
+- Configurar variável de ambiente `.env` **na raiz do projeto** e adicionar uma variável que representa a URL_MAIL do sistema
 
 ## Dicas
 ### Erro ao iniciar projeto
-- Erro `[ERROR] 11:11:22 Error: listen EADDRINUSE: address already in use :::3333`
-    - Matar todos os processos do NODE referente a execução do projeto
+- Erro `[ERROR] 11:11:22 Error: listen EADDRINUSE: address already in use :::3333` ao tentar iniciar o projeto com `yarn dev`
+    - Matar todos os processos do NODE referente a execução do projeto. No Linux, execute:
         - `ps aux | grep node | grep NOMEDAPASTADOPROJETO | awk {'print $2'} | xargs kill -9` 
-- Caso as **variáveis ambiente** não estejam sendo carregadas, segue os seguintes passos:
-    - É preciso instalar um pacote chamado dotenv, com o seguinte comando: `yarn add dotenv`
+- Caso as **variáveis de ambiente** não estejam sendo carregadas, segue os seguintes passos:
+    - Instalar um pacote chamado dotenv, com o seguinte comando: `yarn add dotenv`
     - No arquivo server.ts adicionar a seguinte importação no topo do arquivo: `import 'dotenv/config';`
 
 
