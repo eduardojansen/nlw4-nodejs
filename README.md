@@ -1,4 +1,12 @@
-# NLW4 com NODEJS
+# NPS: Net Promoter Score
+### Projeto desenvolvido durante a semana do evento NLW#4 da Rocktseat.
+### Para executar o projeto:
+
+- Instalar dependências
+    - `yarn install`
+- Renomear o arquivo `.env.example` para `.env`
+- Ininiciar projeto
+    - `yarn dev`
 
 ## Aula 01
 #### Iniciando projeto
@@ -102,6 +110,24 @@
         - `yarn add handlebars`
     - Criar pasta para salvar os templates e criar um arquivo com nome `npnMail.hbs`
 - Configurar variável de ambiente `.env` **na raiz do projeto** e adicionar uma variável que representa a URL_MAIL do sistema
+
+ ## Aula 05 - Finalizando API com validações
+ ### Novas implementações
+  - Criar controller `AnswerController` que é responsável por receber as respostas através dos botões de notas, que é enviado por email.
+  - Criar controller `NpsController`, que é responsável por fazer os cálculos do NPS.
+### Criar validações
+  - Instalar a *Yup Validation*
+      - `yarn add yup`
+  - Configurar validações no Controller de Users
+### Refatorações
+  - Removido `posttest` do package.json
+  - Configurar nos testes o `afterAll` para que exclua o database após os testes
+### Tratamento de erros
+  - Criação de classe de erro `AppError`
+      - Refatorado o código para inclusão da classe de erro.
+      - Criação de midleware para tratar as exceções lançadas
+      - Instalar pacote `yarn add express-async-errors` e importar logo após a importação do `express` para que lide com os erros
+      
 
 ## Dicas
 ### Erro ao iniciar projeto
